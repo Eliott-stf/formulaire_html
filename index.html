@@ -16,7 +16,7 @@
         -Action: URL vers lequel ont envoie les données pour les traitées (un fichier PHP) vide = la page actuelle 
         -method: Methode HTTP avec laquelle envoyer le formulaire, appelée aussi "verbe HTTP" (par defaut = GET)
     -->
-    <form action="" method="post">
+    <form action="" method="post" novalidate>
         <!--
         Un des éléments de saisie est représenté par une balise <input>
         -type: Forme du champs de saisie (plusieurs choix disponibles)
@@ -45,7 +45,82 @@
             <input type="submit" value="Se connecter">
         </div>
     </form>
+    <h2>Formulaire d'inscriptions</h2>
+    <form action="" method="post">
+        <!--Civilité-->
+        <fieldset>
+            <legend>Civilité</legend>
+            <!-- mettre le meme name pour les radio sinon ca ne fonctionne pas -->
+            <div>
+                <input type="radio" name="civility" id="rdo-civility-mrs" value="mrs" checked>
+                <label for="rdo-civility-mrs">Madame</label>
+            </div>
+             <div>
+                <input type="radio" name="civility" id="rdo-civility-mr" value="mr">
+                <label for="rdo-civility-mr">Monsieur</label>
+            </div>
+        </fieldset>
 
+        <!--Prénom-->
+        <div>
+            <label for="input-firstname">Prénom</label>
+            <input type="text" name="firstname" id="input-firstname" pattern="[a-zA-Z'éèà\-]{2,}">
+        </div>
+
+        <!--Nom-->
+        <div>
+            <label for="input-lastname">Nom</label>
+            <input type="text" name="lastname" id="input-lastname">
+        </div>
+
+        <!--Email-->
+        <div>
+            <label for="input-email">Email</label>
+            <input type="email" name="email" id="input-email">
+        </div>
+
+        <!--Plan tarifaire-->
+        <div>
+            <label for="select-price-plan">Plan tarifaire</label>
+            <select name="price-plan" id="select-price-plan">
+                <option value="1">Gratuit mais pas trop ta vu - 0$</option>
+                <option value="2" selected>payant mais ta vu c pas trop cher nn plus - 0.16$</option>
+                <option value="3">Premium pack ultra mega plus - 750$ / an à vie</option>
+            </select>
+        </div>
+
+        <!--Centres d'intérets-->
+        <fieldset>
+            <legend>Centre d'interet</legend>
+            <div>
+                <!-- [] à la fin du name permet de ranger les valeurs dans un tableau pr la base de données -->
+                <input type="checkbox" name="interest[]" id="chk-interest-motocycle" value="1">
+                <label for="chk-interest-motocycle">Moto</label>
+            </div>
+             <div>
+                <input type="checkbox" name="interest[]" id="chk-interest-it" value="2">
+                <label for="chk-interest-it">It</label>
+            </div>
+            <div>
+                <input type="checkbox" name="interest[]" id="chk-interest-pigeon" value="3">
+                <label for="chk-interest-pigeon">Pigeon</label>
+            </div>
+        </fieldset>
+
+
+        <!--Consentement-->
+        <input type="checkbox" name="consent" id="chk-consent" checked>
+        <label for="chk-consent">J'ai lu et je n'accepte pas les <a href="#">conditions générales de vente</a>.</label>
+
+        <!--Envoyer-->
+        <div>
+            <input type="submit" value="S'inscrire">
+        </div>
+
+
+
+
+    </form>
 </body>
 
 </html>
