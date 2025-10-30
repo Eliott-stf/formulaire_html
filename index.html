@@ -1,12 +1,51 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Intro aux Formulaires</title>
 </head>
+
 <body>
     <h1>HTML- Introduction aux Formulaires</h1>
-    
+
+    <h2>Formulaire de login</h2>
+    <!--
+    Un formulaire est représenté par une balise <form> 
+        -Action: URL vers lequel ont envoie les données pour les traitées (un fichier PHP) vide = la page actuelle 
+        -method: Methode HTTP avec laquelle envoyer le formulaire, appelée aussi "verbe HTTP" (par defaut = GET)
+    -->
+    <form action="" method="post">
+        <!--
+        Un des éléments de saisie est représenté par une balise <input>
+        -type: Forme du champs de saisie (plusieurs choix disponibles)
+        -name: Le nom de la variable envoyée par le formulaire pour contenir la donnée saisie 
+        -placeholder: texte temporaire quand le champs est vide 
+        EX:
+        Champs de saisie texte sur une seule ligne
+        -->
+        <!-- Non d'utilisateur -->
+        <div>
+            <label for="input-username">Nom d'utilisateur</label>
+            <input type="text" name="username" id="input-username" placeholder="Nom d'utilisateur">
+        </div>
+
+        <!-- Mot de passe-->
+        <div>
+            <label for="input-password">Mot de passe</label>
+            <input type="password" name="userpass" id="input-password" placeholder="Mot de passe">
+        </div>
+
+        <!-- Boutton d'envoi du formulaire -->
+        <div>
+            <!-- Option 1: <button> de type "submit" -->
+            <!--<button type="submit">Se connecter</button> -->
+            <!-- Option 2: <input> de type "submit" -->
+            <input type="submit" value="Se connecter">
+        </div>
+    </form>
+
 </body>
+
 </html>
